@@ -20,7 +20,7 @@ Resources:
                     uri:
                       Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambdaFunction.Arn}/invocations
                   responses: {}
-            swagger: '2.0'
+
 
 
             
@@ -28,7 +28,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
-      Runtime: nodejs4.3
+      Runtime: nodejs6.10
       CodeUri: s3://<bucket>/inline_swagger.zip
       Events:
         GetApi:

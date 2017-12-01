@@ -12,14 +12,14 @@ Resources:
         # NOTE: Before using this template, replace the <<region>> and <<account>> fields
         #       in Lambda integration URI in the swagger file to region and accountId 
         #       you are deploying to
-        LambdaFunctionName: !GetAtt LambdaFunction.Arn
+        LambdaFunctionName: !Ref LambdaFunction
 
   LambdaFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: s3://<bucket>/api_swagger_cors.zip
       Handler: index.handler
-      Runtime: nodejs4.3
+      Runtime: nodejs6.10
       Events:
         ProxyApiRoot:
           Type: Api
